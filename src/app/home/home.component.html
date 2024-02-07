@@ -1,0 +1,36 @@
+<div class="conatiner-fluid">
+  <marquee behavior="alternate" [scrollAmount]="4">
+    <span *ngFor="let x of reverseProducts">
+      <a routerLink="/product-details/{{ x.productId }}"><img
+          class="imageMarquee"
+          [src]="x.productImage | base64 : x.productId"
+      /></a>
+    </span>
+  </marquee>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div
+      class="card col-sm-25"
+      style="width: 18rem; height: 370px"
+      *ngFor="let p of products">
+      <div class="text-center">
+        <a routerLink="/product-details/{{ p.productId }}">
+          <img
+            [src]="p.productImage | base64 : p.productId"
+            style="width: 160px; height: 160px"
+          />
+        </a>
+      </div>
+      <h5 class="productName">{{ p.productName }}</h5>
+      <h5 class="productPrice">{{ p.productPrice | currency : "INR" }}</h5>
+      <div class="card-body">
+        <a routerLink="/product-details/{{ p.productId }}" class="btn btn-light"
+          ><fa-icon [icon]="iconCart" style="color: brown"></fa-icon> View
+          Details</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

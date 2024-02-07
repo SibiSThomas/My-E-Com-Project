@@ -1,0 +1,83 @@
+<div [ngSwitch]="toggleHeader">
+  <div
+    *ngSwitchCase="'default'"
+    class="conatiner-fluid fixed-top bg-primary default"
+  >
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="">Sibi's Store</a>
+      </li>
+    </ul>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/seller-login">Seller</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/buyer-login">Buyer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="local-cart-list">
+            <fa-icon style="color: white" [icon]="iconCart"></fa-icon>({{cartCount}})</a>
+      </li>
+    </ul>
+  </div>
+  <!---->
+  <div [ngSwitch]="toggleHeader">
+    <div
+      *ngSwitchCase="'seller'"
+      class="conatiner-fluid fixed-top bg-danger seller"
+    >
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"
+            >Sibi's Store<fa-icon style="color: white" [icon]="iconCart"></fa-icon></a
+          >
+        </li>
+      </ul>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/seller-addProduct">Add Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/seller-home">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logoutSeller()">Logout</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" style="font-weight: bold;">{{sellerName}}</a>
+        </li>
+      </ul>
+    </div>
+    <!---->
+
+    <div [ngSwitch]="toggleHeader">
+      <div
+        *ngSwitchCase="'buyer'"
+        class="conatiner-fluid fixed-top bg-warning user"
+      >
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink=""
+              >Sibi's Store</a
+            >
+          </li>
+        </ul>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/myOrder">My Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logOutBuyer()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-weight: bold;">{{buyerName}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/db-cart-list"> <fa-icon style="color: black" [icon]="iconCart"></fa-icon>({{cartCount}})</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

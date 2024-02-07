@@ -1,0 +1,73 @@
+<div class="container">
+    <h3>Buyer Sign-Up Form</h3>
+    <div *ngIf="existingCustomer" class="existingCustomer">
+        <h4>{{existingCustomer}}</h4>
+    </div>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUpCustomer()">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Name" 
+            formControlName="buyerName"
+            [ngClass]="{
+                success: buyerName.valid,
+                danger: buyerName.invalid && (buyerName.dirty || buyerName.touched) 
+            }">
+        </div>
+        <div class="feedback">
+            <p *ngIf="buyerName.invalid && (buyerName.dirty || buyerName.touched)">*Buyer Name is required</p>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Enter Password"
+            formControlName="buyerPassword"
+            [ngClass]="{
+                success: buyerPassword.valid,
+                danger: buyerPassword.invalid && (buyerPassword.dirty || buyerPassword.touched)                
+            }">
+        </div>
+        <div class="feedback">
+            <p *ngIf="buyerPassword.invalid && (buyerPassword.dirty || buyerPassword.touched)">*Buyer Password is required</p>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Email" formControlName="buyerEmail"
+            [ngClass]="{
+                success: buyerEmail.valid,
+                danger: buyerEmail.invalid && (buyerEmail.dirty || buyerEmail.touched)
+            }"
+            >
+        </div>
+        <div class="feedback" *ngIf="buyerEmail.invalid && (buyerEmail.dirty || buyerEmail.touched)">
+            <p *ngIf="buyerEmail.errors['required']">*Buyer Email is required</p>
+            <p *ngIf="buyerEmail.errors['pattern']">*Enter a valid Email</p>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Address"
+            formControlName="buyerAddress"
+            [ngClass]="{
+              success: buyerAddress.valid,
+              danger: buyerAddress.invalid && (buyerAddress.dirty || buyerAddress.touched)  
+            }"
+            >
+        </div>
+        <div class="feedback">
+            <p *ngIf="buyerAddress.invalid && (buyerAddress.dirty || buyerAddress.touched)">
+            *Address is required</p>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Mobile Number"
+            formControlName="buyerMobile"
+            [ngClass]="{
+                success: buyerMobile.valid,
+                danger: buyerMobile.invalid && (buyerMobile.dirty || buyerMobile.touched)
+            }"
+            >
+        </div>
+        <div class="feedback" *ngIf="buyerMobile.invalid && (buyerMobile.      dirty || buyerMobile.touched)">
+            <p *ngIf="buyerMobile.errors['required']">*Buyer Mobile number is required</p>    
+            <p *ngIf="buyerMobile.errors['pattern']">*Enter a valid number</p>
+        </div>
+        <div class="login">
+            <span>Already a member? <a routerLink="/buyer-login">Login</a></span>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="signUpForm.invalid">SignUp</button>
+    </form>
+</div>

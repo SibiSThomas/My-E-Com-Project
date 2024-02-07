@@ -1,0 +1,86 @@
+<div class="container">
+    <h3>Add Product</h3>
+    <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="sellerId" hidden>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="productName"
+            placeholder="Product Name"
+            [ngClass]="{
+                success: productName.valid,
+                danger: productName.invalid && (productName.dirty || productName.touched) 
+            }"
+            >
+        </div>
+        <div class="feedback">
+            <p *ngIf="productName.invalid && (productName.dirty || productName.touched)">*Product Name is required</p>
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="productPrice"
+            placeholder="Product Price"
+            [ngClass]="{
+                success: productPrice.valid,
+                danger : productPrice.invalid && (productPrice.dirty || productPrice.touched)
+            }"
+            >
+        </div>
+        <div class="feedback">
+            <p *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+            *Product Price is required</p>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="productColor"
+            placeholder="Product Color"
+            [ngClass]="{
+                success: productColor.valid,
+                danger: productColor.invalid && (productColor.dirty || productColor.touched)
+            }">
+        </div>
+        <div class="feedback">
+            <p *ngIf="productColor.invalid && (productColor.dirty || productColor.touched)">*Product Color is required</p>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="productQuantity"
+            placeholder="Product Quantity"
+            [ngClass]="{
+                success: productQuantity.valid,
+                danger: productQuantity.invalid && (productQuantity.dirty || productQuantity.touched)
+            }"
+            >
+        </div>
+        <div class="feedback">
+            <p *ngIf="productQuantity.invalid && (productQuantity.dirty || productQuantity.touched)">
+                *Product Quantity is required
+            </p>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="productDescription"
+            placeholder="Product Description"
+            [ngClass]="{
+                success: productDescription.valid,
+                danger: productDescription.invalid && (productDescription.dirty || productDescription.touched)
+            }">
+        </div>
+        <div class="feedback">
+            <p *ngIf="productDescription.invalid && (productDescription.dirty || productDescription.touched)">*Product Description is required</p>
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-control" formControlName="productImage"
+            placeholder="Product Image" (change)="onFileSelection($event)"
+            [ngClass]="{
+                success: productImage.valid,
+                danger: productImage.invalid && (productImage.dirty || productImage.touched)
+            }">
+        </div>
+        <div class="feedback">
+            <p *ngIf="productImage.invalid && (productImage.dirty || productImage.touched)">*Product Image is required</p>
+        </div>
+        <div class="button">
+            <button class="btn btn-success" type="submit" [disabled]="addProductForm.invalid">Submit</button>
+            <button class="btn btn-danger" type="reset" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+.container-fluid{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.details{
+    width: 70%;
+}
+.summary{
+    width: 30%;
+    padding: 0px 25px 25px 25px;
+}
+li{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+.btn{
+    width: 100%;
+}
+
+ 

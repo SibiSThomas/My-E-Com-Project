@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="details">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of cartData">
+            <td><img [src]="x.productImage | base64 : x.productId" /></td>
+            <td>{{ x.productName }}</td>
+            <td>{{ x.productPrice }}</td>
+            <td>{{ x.orderedQuantity }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="removeFromLocalCart(x)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="summary">
+      <h3>Summary</h3>
+      <li>
+        <span>Gross Total</span><span>{{ grossTotal }}</span>
+      </li>
+      <li><span>Tax</span><span></span>{{ tax }}</li>
+      <li>
+        <span>Discount</span><span>{{ discount }}</span>
+      </li>
+      <li>
+        <span>Delivery Charges</span><span>{{ delivery }}</span>
+      </li>
+      <li>
+        <span style="font-weight: bold">Net Amount</span
+        ><span>{{ netAmount }}</span>
+      </li>
+      <div class="button">
+        <button class="btn btn-primary" routerLink="/buyer-login" 
+        [disabled]="checkout">
+          Checkout
+        </button>
+      </div>
+    
+  </div>
+</div>

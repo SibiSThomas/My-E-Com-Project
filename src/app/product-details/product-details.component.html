@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card" style="width: 35rem">
+      <img
+        [src]="product?.productImage | base64 : product?.productId"
+        class="card-img-top"
+      />
+    </div>
+  
+    <div class="card" style="width: 35rem">
+      <div class="price">
+          <h1>Price : {{product?.productPrice | currency: "INR"}}</h1>
+      </div>
+      <div class="color">
+          <h3>Color</h3>
+          <p class="colour" [style.backgroundColor]="product?.productColor"></p>
+      </div>
+      <div class="description">
+        <h4>Description</h4>  
+        <p>{{product?.productDescription}}</p>
+      </div>
+      <div class="qty">
+        <button (click)="subtractQty()">-</button>
+        <input type="text" [(ngModel)]="qty" class="quantity" [disabled]="true">
+        <button (click)="addQty()">+</button>
+        <span>Qty Left : {{quantityLeft}}</span>
+      </div>
+      
+      <div class="button">
+        <button class="btn btn-success" (click)="buyNow()">Buy Now</button>
+        <button *ngIf="!removeCart" class="btn btn-warning" (click)="addToCart()">Add to Cart</button>
+        <button *ngIf="removeCart" class="btn btn-danger" 
+        (click)="removeFromCart()">Remove from Cart</button>
+      </div>
+    </div>
+  </div>

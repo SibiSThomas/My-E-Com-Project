@@ -1,0 +1,33 @@
+<div class="container">
+    <h2 style="color: gold;">Your Order Consists the following products</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Order Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderList">
+          <td>
+            <img
+              [src]="order.productImage | base64 : order.productId"
+              style="width: 100px; height: 100px; border-radius: 50%;"
+            />
+          </td>
+          <td>{{order.productName}}</td>
+          <td>{{order.productPrice}}</td>
+          <td>{{order.orderedQuantity}}</td>
+          <td>{{order.orderDate | date: 'dd-MM-yyyy'}}</td>
+          <td>Pending</td>
+          <td><button class="btn btn-danger" (click)="deleteOrder(order)">Cancel Order</button></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

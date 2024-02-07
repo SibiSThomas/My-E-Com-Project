@@ -1,0 +1,16 @@
+.default li a{
+    color: white;
+    cursor: pointer;
+}
+.default, .seller, .user{
+    display: flex;
+    justify-content: space-between;
+}
+.seller li a{
+    color: white;
+    cursor: pointer;
+}
+.user li a{
+    color: black;
+    cursor: pointer;
+}

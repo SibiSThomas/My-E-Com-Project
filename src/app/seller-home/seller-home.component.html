@@ -1,0 +1,29 @@
+<div class="conatiner-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Color</th>
+                <th>Product Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productList">
+               <td><img [src]="p.productImage | base64: p.productId"
+                style="width: 130px; height: 130px; border-radius: 50%;"></td>
+               <td><p>{{p.productName}}</p></td>
+               <td><p>{{p.productPrice}}</p></td>
+               <td><p class="product-color" [style.backgroundColor]="p.productColor"></p></td>
+               <td><p>{{p.productQuantity}}</p></td>
+               <td><p>
+                    <span style="color: red; cursor: pointer;"><fa-icon [icon]="iconTrash" (click)="deleteProduct(p.productId)"></fa-icon></span>
+                    <span style="color: blue; cursor: pointer;"><fa-icon [icon]="iconEdit" (click)="openEditForm(p.productId)"></fa-icon></span>
+                </p>
+               </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+    <h3>Seller Sign-Up Form</h3>
+    <div *ngIf="existingSeller" class="existingSeller">
+        <h3>{{existingSeller}}</h3>
+    </div>
+<form [formGroup]="sellerForm" (ngSubmit)="sellerSignUp()">
+    <div class="form-group" >
+        <input type="text" class="form-control" placeholder="Enter Name"
+        formControlName="sellerName"
+        [ngClass]="{
+            success: sellerName.valid,
+            danger: sellerName.invalid && (sellerName.dirty || sellerName.touched)
+        }">    
+    </div>
+    <div class="feedback">
+        <p *ngIf="sellerName.invalid && (sellerName.dirty || sellerName.touched)">
+            *Seller Name is required
+        </p>
+    </div>  
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="sellerPassword"
+        [ngClass]="{
+            success: sellerPassword.valid,
+            danger: sellerPassword.invalid && (sellerPassword.dirty || sellerPassword.touched)
+        }">    
+    </div>
+    <div class="feedback">
+        <p *ngIf="sellerPassword.invalid && (sellerPassword.dirty || sellerPassword.touched)">
+            *Seller Password is required
+        </p>
+    </div>  
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Email"
+        formControlName="sellerEmail"
+        [ngClass]="{
+            success: sellerEmail.valid,
+            danger: sellerEmail.invalid && (sellerEmail.dirty || sellerEmail.touched)
+        }">    
+    </div>
+    <div class="feedback"
+    *ngIf="sellerEmail.errors && (sellerEmail.dirty || sellerEmail.touched)">
+        <p *ngIf="sellerEmail.errors['required']">*Seller Email is required</p>
+        <p *ngIf="sellerEmail.errors['pattern']">*Enter a valid Email</p>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Mobile Number" formControlName="sellerMobile"
+        [ngClass]="{
+            success: sellerMobile.valid,
+            danger: sellerMobile.invalid && (sellerMobile.dirty || sellerMobile.touched)
+        }"
+        >    
+    </div>
+    <div class="feedback"
+    *ngIf="sellerMobile.invalid && (sellerMobile.dirty || sellerMobile.touched)">
+        <p *ngIf="sellerMobile.errors['required']">*Seller Mobile is required</p>
+        <p *ngIf="sellerMobile.errors['pattern']">*Enter valid Mobile Number</p>
+    </div>
+    <div class="login">
+        <span>Already a member? <a routerLink="/seller-login">Login</a></span>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="sellerForm.invalid">Sign Up</button> 
+</form>
+</div>
+

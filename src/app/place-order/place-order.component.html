@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="checkout">
+        <h1 style="text-align: center;">Checkout</h1>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <h2 style="text-align: center;">Shipping Address</h2>
+            <input type="text" class="form-control" [(ngModel)]="buyerAddress" disabled>
+            <input type="text" class="form-control" [(ngModel)]="buyerEmail" disabled>
+            <input type="text" class="form-control" [(ngModel)]="buyerMobile" disabled>
+            <button class="btn btn-warning" (click)="confirm()">Confirm</button>
+        </div>
+        <div class="col-6">
+            <h2>Total Amount : {{netAmount | currency : 'INR'}}</h2>
+            <h2>Payment Mode : Cash on delivery</h2>
+        </div>
+    </div>
+

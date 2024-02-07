@@ -1,0 +1,27 @@
+.container{
+    width: 40%;
+    margin-top: 100px;
+}
+.form-group{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input{
+    width: 100%;
+}
+button{
+    margin-top: 20px;
+    width: 100%;
+}
+h3{
+    margin-bottom: 30px;
+}
+.signUp{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+.invalid{
+    color: red;
+}
