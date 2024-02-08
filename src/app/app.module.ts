@@ -24,6 +24,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,6 @@ import { MyOrderComponent } from './my-order/my-order.component';
     PlaceOrderComponent,
     ConfirmationComponent,
     MyOrderComponent,
-
   ],
   imports: [
     BrowserModule,

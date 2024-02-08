@@ -1,12 +1,32 @@
 <div class="conatiner-fluid">
-  <marquee behavior="alternate" [scrollAmount]="4">
+  <marquee behavior="alternate" [scrollAmount]="12">
     <span *ngFor="let x of reverseProducts">
-      <a routerLink="/product-details/{{ x.productId }}"><img
+      <a routerLink="/product-details/{{ x.productId }}"
+        ><img
           class="imageMarquee"
           [src]="x.productImage | base64 : x.productId"
       /></a>
     </span>
   </marquee>
+  <div class="search">
+    <ul>
+      <input
+        type="text"
+        placeholder="Search Item"
+        class="form-control"
+        (keyup)="searchOnKeyup($event)"
+        [(ngModel)]="searchItem"
+        (blur)="clearSearchBox()"
+      />
+      <li *ngFor="let x of searchedProducts">
+        <a  (click)="showProduct(x.productId)"
+          #closeList (mousedown)="showSearchedProducts()"
+        >
+          {{ x.productName }}
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="container">
@@ -14,7 +34,8 @@
     <div
       class="card col-sm-25"
       style="width: 18rem; height: 370px"
-      *ngFor="let p of products">
+      *ngFor="let p of products"
+    >
       <div class="text-center">
         <a routerLink="/product-details/{{ p.productId }}">
           <img

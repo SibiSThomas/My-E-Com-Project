@@ -23,5 +23,8 @@ li{
 .btn{
     width: 100%;
 }
-
+.empty{
+    text-align: center;
+    color: rgb(26, 144, 241);
+}
  
