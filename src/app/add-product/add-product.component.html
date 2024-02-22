@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            <input type="number" class="form-control" formControlName="productPrice"
+            <input type="number" min="100" class="form-control" formControlName="productPrice"
             placeholder="Product Price"
             [ngClass]="{
                 success: productPrice.valid,
@@ -43,7 +43,7 @@
             <p *ngIf="productColor.invalid && (productColor.dirty || productColor.touched)">*Product Color is required</p>
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" formControlName="productQuantity"
+            <input type="number" min="1" class="form-control" formControlName="productQuantity"
             placeholder="Product Quantity"
             [ngClass]="{
                 success: productQuantity.valid,
