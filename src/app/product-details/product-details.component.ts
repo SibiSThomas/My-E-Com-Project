@@ -94,7 +94,7 @@ export class ProductDetailsComponent {
     
     this.quantityLeft = this.quantityLeft - this.qty;
     /*There ar two steps to addToCart  1.  addToDBCart and 2. addToLocalCart*/
-    //create a cart object
+    //Define a method to create a cart object
     
     let buyerSession = sessionStorage.getItem('buyer');
     if(buyerSession){
