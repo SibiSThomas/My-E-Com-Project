@@ -10,6 +10,7 @@ import { Buyer } from '../dataType/buyer';
 })
 export class DbCartListComponent {
   grossTotal: number = 0;
+  taxableAmount: number = 0;
   tax: number = .18;
   discount: number = .1;
   delivery: number = 50;
@@ -28,8 +29,9 @@ export class DbCartListComponent {
         for (let i = 0; i < this.cartData.length; i++) {
           this.grossTotal = this.grossTotal + (this.cartData[i].productPrice * this.cartData[i].orderedQuantity);
         }
-        this.tax = Math.round(this.grossTotal * this.tax);
         this.discount = Math.round(this.grossTotal * this.discount);
+        this.taxableAmount = Math.round(this.grossTotal - this.discount);
+        this.tax = Math.round(this.taxableAmount * this.tax);
         this.netAmount = Math.round(this.grossTotal + this.tax - this.discount + this.delivery);
         if(this.grossTotal ===0){
           this.delivery = 0;
@@ -53,8 +55,9 @@ export class DbCartListComponent {
         for(let i=0; i<this.cartData.length; i++){
           this.grossTotal = this.grossTotal + (this.cartData[i].productPrice * this.cartData[i].orderedQuantity);
         }
-        this.tax = Math.round(this.grossTotal * this.tax);
         this.discount = Math.round(this.grossTotal * this.discount);
+        this.taxableAmount = Math.round(this.grossTotal - this.discount);
+        this.tax = Math.round(this.taxableAmount * this.tax);
         this.netAmount = Math.round(this.grossTotal + this.tax - this.discount + this.delivery);
         if(this.grossTotal===0){
           this.delivery = 0;
