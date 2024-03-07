@@ -1,6 +1,1 @@
-1.  Install Bootstarp
-2.  Install Font Awesome
-3.  Generate header component and copy Bootstarp navbar into it.  
-4.  Generate user login component and update app-routing-module 
-5.  To Create different form import ReactiveFormsModule and FormsModule into app.    module.ts
-6.  
+
